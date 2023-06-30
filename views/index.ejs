@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chuck Norris Jokes</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body class="container">
+    <h1 class="jumbotron text-center">Chuck Norris Jokes</h1>
+    <div class="row">
+      <div class="col-xs-2">
+        <form action="/" method="GET">
+          <div class="input-group">
+            <select name="category" class="form-control" style="width:auto;">
+              <option value="" disabled selected>Please Select A Category</option>
+              <% categories.forEach((category) => { %>
+                <option value="<%= category %>">
+                  <%= category %>
+                </option>
+              <% }); %>
+            </select>
+            <span class="input-group-btn">
+              <button class="btn btn-success" type="submit">Get Chuck Norris Joke</button>
+            </span>
+          </div>
+        </form>
+      </div>
+    </div>
+    <hr>
+    <div class="row col-xs-8 col-xs-offset-2">
+      <% if (category) { %>
+        <h3>
+          <u><%= category %></u>
+        </h3>
+        <p><%= joke %></p>
+      </div>
+      <% } else { %>
+        <h3 class="text-center text-info">
+          Submit a joke category!
+        </h3>
+      <% } %>
+    </div>
+  </body>
+</html>
